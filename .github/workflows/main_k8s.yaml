@@ -49,7 +49,7 @@ jobs:
         helm version
         
     - name: Lint helm charts
-      run: helm lint ./helm/amax-frontend/
+      run: helm lint ${{ env.HELM_PATH }}
       
     - name: Deploy
       run: |
