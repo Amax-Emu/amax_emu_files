@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "cs-amax-emu.fullname" . }}-test-connection"
+  labels:
+    {{- include "cs-amax-emu.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "cs-amax-emu.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
