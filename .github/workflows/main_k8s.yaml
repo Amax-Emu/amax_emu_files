@@ -32,7 +32,7 @@ jobs:
     - name: Build, tag, and push image to registry
       id: build-image
       run: |
-          docker build -f Dockerfile.prod --build-arg AMAX_API_URL_VAR=${{ env.AMAX_API_URL }} -t ${{ env.DOCKER_IMAGE }} .
+          docker build -f Dockerfile -t ${{ env.DOCKER_IMAGE }} .
           docker push ${{ env.DOCKER_IMAGE }}    
 
     - name: Create kube config
