@@ -54,4 +54,4 @@ jobs:
       
     - name: Deploy
       run: |
-        helm upgrade --atomic --timeout 2m -f ${{ env.HELM_PATH }}/values.yaml ${{ env.SERVICE_NAME }} ${{ env.HELM_PATH }} --set image.tag=${{ env.DOCKER_IMAGE_TAG }} --namespace ${{ env.NAMESPACE }}
+        helm upgrade --install --atomic --timeout 2m -f ${{ env.HELM_PATH }}/values.yaml ${{ env.SERVICE_NAME }} ${{ env.HELM_PATH }} --set image.tag=${{ env.DOCKER_IMAGE_TAG }} --namespace ${{ env.NAMESPACE }}
